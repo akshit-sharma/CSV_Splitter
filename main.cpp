@@ -23,7 +23,7 @@ int main(int argc, char ** argv) {
     }
     if(argc==2){
         file_name = std::string(argv[1]);
-        max_lines = 1,000,000;
+        max_lines = 1000000;
     }
 
     std::ifstream input_file(file_name);
@@ -33,7 +33,7 @@ int main(int argc, char ** argv) {
 
     file_number = 0;
 
-    std::ofstream output_file(getNextOutput_fileName());
+    std::ofstream output_file(getNextOutput_fileName().c_str(), std::ofstream::trunc);
     output_file.write(first_line.c_str(),first_line.length());
     current_line = 0;
 
@@ -62,7 +62,12 @@ int main(int argc, char ** argv) {
 std::string getNextOutput_fileName(){
 
     file_number++;
-    output_file_name = file_name+" ";
-    output_file_name += file_number+".csv";
+    output_file_name = file_name+"_";
+    output_file_name += std::to_string(file_number);
+    output_file_name += ".csv";
+
+    std::cout<<"OutputFile : "<<output_file_name<<std::endl;
+
+    return output_file_name;
 
 }
