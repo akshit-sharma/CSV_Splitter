@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 2.7)
 project(CSV_Spliter)
 
 set(CMAKE_CXX_STANDARD 14)
