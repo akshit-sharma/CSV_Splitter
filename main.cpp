@@ -28,6 +28,7 @@ int main(int argc, char ** argv) {
 
     std::ifstream input_file(file_name);
     std::getline(input_file, first_line);
+    first_line += "\n";
 
     file_name = file_name.replace(file_name.end()-4,file_name.end(),"");
 
@@ -40,7 +41,7 @@ int main(int argc, char ** argv) {
     while(!input_file.eof()) {
         current_line++;
         std::getline(input_file, buffer_line);
-
+        buffer_line += "\n";
         output_file.write(buffer_line.c_str(),buffer_line.length());
 
         if(current_line>max_lines){
